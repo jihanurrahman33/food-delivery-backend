@@ -16,7 +16,10 @@ const configSchema = z.object({
   JWT_REFRESH_EXPIRES_IN: z.string().default('30d'),
   RATE_LIMIT_WINDOW_MS: z.coerce.number().default(15 * 60 * 1000),
   RATE_LIMIT_MAX_REQUESTS: z.coerce.number().default(1000),
-  DATA_DIR: z.string().default(path.resolve(process.cwd(), 'data')),
+  DATA_DIR: z.string().default(
+    process.env.DATA_DIR ||
+      (process.env.VERCEL ? path.join('/tmp', 'data') : path.resolve(process.cwd(), 'data'))
+  ),
   PAYMENT_PROVIDER: z.enum(['mock', 'stripe', 'paypal']).default('mock'),
   PAYMENT_WEBHOOK_SECRET: z.string().default('whsec_food_delivery_secure_webhook_key_2026'),
 });

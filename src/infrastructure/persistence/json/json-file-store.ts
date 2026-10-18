@@ -29,7 +29,13 @@ export class JsonFileStore<T extends { id: string }> {
   private ensureFileExists(): void {
     if (!fs.existsSync(this.filePath)) {
       try {
-        fs.writeFileSync(this.filePath, JSON.stringify([], null, 2), 'utf-8');
+        const seedPath = path.resolve(process.cwd(), 'data', path.basename(this.filePath));
+        if (fs.existsSync(seedPath) && seedPath !== this.filePath) {
+          fs.copyFileSync(seedPath, this.filePath);
+          logger.info(`Auto-seeded ${this.filePath} from ${seedPath}`);
+        } else {
+          fs.writeFileSync(this.filePath, JSON.stringify([], null, 2), 'utf-8');
+        }
       } catch (err) {
         logger.error(`Failed to initialize file ${this.filePath}:`, err);
       }
