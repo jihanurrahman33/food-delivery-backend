@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createOrderRouter = void 0;
+const express_1 = require("express");
+const auth_middleware_1 = require("../middleware/auth.middleware");
+const validate_middleware_1 = require("../middleware/validate.middleware");
+const order_validator_1 = require("../validators/order.validator");
+const createOrderRouter = (controller) => {
+    const router = (0, express_1.Router)();
+    router.use(auth_middleware_1.authenticateJwt);
+    router.post('/', (0, validate_middleware_1.validateRequest)({ body: order_validator_1.createOrderSchema }), controller.placeOrder);
+    router.get('/active', controller.getActiveOrders);
+    router.get('/history', controller.getOrderHistory);
+    router.get('/:id', controller.getOrderById);
+    router.post('/:id/cancel', controller.cancelOrder);
+    router.post('/promo/validate', (0, validate_middleware_1.validateRequest)({ body: order_validator_1.validatePromoSchema }), controller.validatePromo);
+    router.get('/:id/chat', controller.getChatMessages);
+    router.post('/:id/chat', (0, validate_middleware_1.validateRequest)({ body: order_validator_1.sendChatSchema }), controller.sendChatMessage);
+    router.post('/:id/rate', (0, validate_middleware_1.validateRequest)({ body: order_validator_1.rateOrderSchema }), controller.rateOrder);
+    return router;
+};
+exports.createOrderRouter = createOrderRouter;

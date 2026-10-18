@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createRestaurantRouter = void 0;
+const express_1 = require("express");
+const auth_middleware_1 = require("../middleware/auth.middleware");
+const validate_middleware_1 = require("../middleware/validate.middleware");
+const payment_validator_1 = require("../validators/payment.validator");
+const createRestaurantRouter = (controller) => {
+    const router = (0, express_1.Router)();
+    router.get('/restaurants', auth_middleware_1.optionalAuth, controller.getRestaurants);
+    router.get('/restaurants/:id', auth_middleware_1.optionalAuth, controller.getRestaurantById);
+    router.get('/restaurants/:id/foods', controller.getFoodsByRestaurant);
+    router.get('/restaurants/:id/reviews', controller.getReviews);
+    router.post('/restaurants/:id/reviews', auth_middleware_1.authenticateJwt, (0, validate_middleware_1.validateRequest)({ body: payment_validator_1.createReviewSchema }), controller.addReview);
+    router.get('/foods/search', controller.searchFoods);
+    router.get('/foods/:id', controller.getFoodById);
+    router.post('/favorites/toggle', auth_middleware_1.authenticateJwt, controller.toggleFavorite);
+    router.get('/favorites', auth_middleware_1.authenticateJwt, controller.getFavorites);
+    return router;
+};
+exports.createRestaurantRouter = createRestaurantRouter;

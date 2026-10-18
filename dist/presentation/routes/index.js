@@ -1,0 +1,27 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createApiRouter = void 0;
+const express_1 = require("express");
+const auth_routes_1 = require("./auth.routes");
+const home_routes_1 = require("./home.routes");
+const restaurant_routes_1 = require("./restaurant.routes");
+const order_routes_1 = require("./order.routes");
+const payment_routes_1 = require("./payment.routes");
+const profile_routes_1 = require("./profile.routes");
+const chef_routes_1 = require("./chef.routes");
+const rider_routes_1 = require("./rider.routes");
+const health_routes_1 = require("./health.routes");
+const createApiRouter = (c) => {
+    const router = (0, express_1.Router)();
+    router.use('/health', (0, health_routes_1.createHealthRouter)(c.healthController));
+    router.use('/auth', (0, auth_routes_1.createAuthRouter)(c.authController));
+    router.use('/home', (0, home_routes_1.createHomeRouter)(c.homeController));
+    router.use('/', (0, restaurant_routes_1.createRestaurantRouter)(c.restaurantController));
+    router.use('/orders', (0, order_routes_1.createOrderRouter)(c.orderController));
+    router.use('/payments', (0, payment_routes_1.createPaymentRouter)(c.paymentController));
+    router.use('/', (0, profile_routes_1.createProfileRouter)(c.profileController));
+    router.use('/chef', (0, chef_routes_1.createChefRouter)(c.chefController));
+    router.use('/rider', (0, rider_routes_1.createRiderRouter)(c.riderController));
+    return router;
+};
+exports.createApiRouter = createApiRouter;

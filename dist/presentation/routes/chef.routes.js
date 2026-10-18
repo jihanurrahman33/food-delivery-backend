@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createChefRouter = void 0;
+const express_1 = require("express");
+const auth_middleware_1 = require("../middleware/auth.middleware");
+const rbac_middleware_1 = require("../middleware/rbac.middleware");
+const validate_middleware_1 = require("../middleware/validate.middleware");
+const payment_validator_1 = require("../validators/payment.validator");
+const createChefRouter = (controller) => {
+    const router = (0, express_1.Router)();
+    router.use(auth_middleware_1.authenticateJwt);
+    router.use((0, rbac_middleware_1.requireRole)('chef'));
+    router.get('/dashboard', controller.getDashboard);
+    router.get('/orders', controller.getOrders);
+    router.put('/orders/:id/status', controller.updateOrderStatus);
+    router.put('/kitchen-status', controller.toggleKitchenStatus);
+    router.get('/menu', controller.getMenu);
+    router.post('/menu', (0, validate_middleware_1.validateRequest)({ body: payment_validator_1.addDishSchema }), controller.addDish);
+    return router;
+};
+exports.createChefRouter = createChefRouter;
