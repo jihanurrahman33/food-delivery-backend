@@ -20740,7 +20740,7 @@ var require_route = __commonJS({
         sync = 0;
       }
     };
-    Route.prototype.all = function all(handler2) {
+    Route.prototype.all = function all(handler) {
       const callbacks = flatten.call(slice.call(arguments), Infinity);
       if (callbacks.length === 0) {
         throw new TypeError("argument handler is required");
@@ -20758,7 +20758,7 @@ var require_route = __commonJS({
       return this;
     };
     methods.forEach(function(method) {
-      Route.prototype[method] = function(handler2) {
+      Route.prototype[method] = function(handler) {
         const callbacks = flatten.call(slice.call(arguments), Infinity);
         if (callbacks.length === 0) {
           throw new TypeError("argument handler is required");
@@ -20961,17 +20961,17 @@ var require_router = __commonJS({
         }
       }
     };
-    Router11.prototype.use = function use(handler2) {
+    Router11.prototype.use = function use(handler) {
       let offset = 0;
       let path3 = "/";
-      if (typeof handler2 !== "function") {
-        let arg = handler2;
+      if (typeof handler !== "function") {
+        let arg = handler;
         while (Array.isArray(arg) && arg.length !== 0) {
           arg = arg[0];
         }
         if (typeof arg !== "function") {
           offset = 1;
-          path3 = handler2;
+          path3 = handler;
         }
       }
       const callbacks = flatten.call(slice.call(arguments, offset), Infinity);
@@ -21195,9 +21195,9 @@ var require_application = __commonJS({
     var Router11 = require_router();
     var slice = Array.prototype.slice;
     var flatten = Array.prototype.flat;
-    var app = exports2 = module2.exports = {};
+    var app2 = exports2 = module2.exports = {};
     var trustProxyDefaultSymbol = "@@symbol:trust_proxy_default";
-    app.init = function init() {
+    app2.init = function init() {
       var router = null;
       this.cache = /* @__PURE__ */ Object.create(null);
       this.engines = /* @__PURE__ */ Object.create(null);
@@ -21217,7 +21217,7 @@ var require_application = __commonJS({
         }
       });
     };
-    app.defaultConfiguration = function defaultConfiguration() {
+    app2.defaultConfiguration = function defaultConfiguration() {
       var env = process.env.NODE_ENV || "development";
       this.enable("x-powered-by");
       this.set("etag", "weak");
@@ -21250,7 +21250,7 @@ var require_application = __commonJS({
         this.enable("view cache");
       }
     };
-    app.handle = function handle(req, res, callback) {
+    app2.handle = function handle(req, res, callback) {
       var done = callback || finalhandler(req, res, {
         env: this.get("env"),
         onerror: logerror.bind(this)
@@ -21267,7 +21267,7 @@ var require_application = __commonJS({
       }
       this.router.handle(req, res, done);
     };
-    app.use = function use(fn) {
+    app2.use = function use(fn) {
       var offset = 0;
       var path3 = "/";
       if (typeof fn !== "function") {
@@ -21304,10 +21304,10 @@ var require_application = __commonJS({
       }, this);
       return this;
     };
-    app.route = function route(path3) {
+    app2.route = function route(path3) {
       return this.router.route(path3);
     };
-    app.engine = function engine(ext, fn) {
+    app2.engine = function engine(ext, fn) {
       if (typeof fn !== "function") {
         throw new Error("callback function required");
       }
@@ -21315,7 +21315,7 @@ var require_application = __commonJS({
       this.engines[extension] = fn;
       return this;
     };
-    app.param = function param(name, fn) {
+    app2.param = function param(name, fn) {
       if (Array.isArray(name)) {
         for (var i = 0; i < name.length; i++) {
           this.param(name[i], fn);
@@ -21325,7 +21325,7 @@ var require_application = __commonJS({
       this.router.param(name, fn);
       return this;
     };
-    app.set = function set2(setting, val) {
+    app2.set = function set2(setting, val) {
       if (arguments.length === 1) {
         return this.settings[setting];
       }
@@ -21348,23 +21348,23 @@ var require_application = __commonJS({
       }
       return this;
     };
-    app.path = function path3() {
+    app2.path = function path3() {
       return this.parent ? this.parent.path() + this.mountpath : "";
     };
-    app.enabled = function enabled(setting) {
+    app2.enabled = function enabled(setting) {
       return Boolean(this.set(setting));
     };
-    app.disabled = function disabled(setting) {
+    app2.disabled = function disabled(setting) {
       return !this.set(setting);
     };
-    app.enable = function enable(setting) {
+    app2.enable = function enable(setting) {
       return this.set(setting, true);
     };
-    app.disable = function disable(setting) {
+    app2.disable = function disable(setting) {
       return this.set(setting, false);
     };
     methods.forEach(function(method) {
-      app[method] = function(path3) {
+      app2[method] = function(path3) {
         if (method === "get" && arguments.length === 1) {
           return this.set(path3);
         }
@@ -21373,7 +21373,7 @@ var require_application = __commonJS({
         return this;
       };
     });
-    app.all = function all(path3) {
+    app2.all = function all(path3) {
       var route = this.route(path3);
       var args = slice.call(arguments, 1);
       for (var i = 0; i < methods.length; i++) {
@@ -21381,7 +21381,7 @@ var require_application = __commonJS({
       }
       return this;
     };
-    app.render = function render(name, options, callback) {
+    app2.render = function render(name, options, callback) {
       var cache = this.cache;
       var done = callback;
       var engines = this.engines;
@@ -21417,7 +21417,7 @@ var require_application = __commonJS({
       }
       tryRender(view, renderOptions, done);
     };
-    app.listen = function listen() {
+    app2.listen = function listen() {
       var server = http.createServer(this);
       var args = slice.call(arguments);
       if (typeof args[args.length - 1] === "function") {
@@ -23354,7 +23354,7 @@ var require_response = __commonJS({
       var chunk = body;
       var encoding;
       var req = this.req;
-      var app = this.app;
+      var app2 = this.app;
       switch (typeof chunk) {
         // string defaulting to html
         case "string":
@@ -23380,7 +23380,7 @@ var require_response = __commonJS({
           }
           break;
       }
-      var etagFn = app.get("etag fn");
+      var etagFn = app2.get("etag fn");
       var generateETag = !this.get("ETag") && typeof etagFn === "function";
       var len;
       if (chunk !== void 0) {
@@ -23423,10 +23423,10 @@ var require_response = __commonJS({
       return this;
     };
     res.json = function json2(obj) {
-      var app = this.app;
-      var escape2 = app.get("json escape");
-      var replacer = app.get("json replacer");
-      var spaces = app.get("json spaces");
+      var app2 = this.app;
+      var escape2 = app2.get("json escape");
+      var replacer = app2.get("json replacer");
+      var spaces = app2.get("json spaces");
       var body = stringify(obj, replacer, spaces, escape2);
       if (!this.get("Content-Type")) {
         this.set("Content-Type", "application/json");
@@ -23434,12 +23434,12 @@ var require_response = __commonJS({
       return this.send(body);
     };
     res.jsonp = function jsonp(obj) {
-      var app = this.app;
-      var escape2 = app.get("json escape");
-      var replacer = app.get("json replacer");
-      var spaces = app.get("json spaces");
+      var app2 = this.app;
+      var escape2 = app2.get("json escape");
+      var replacer = app2.get("json replacer");
+      var spaces = app2.get("json spaces");
       var body = stringify(obj, replacer, spaces, escape2);
-      var callback = this.req.query[app.get("jsonp callback name")];
+      var callback = this.req.query[app2.get("jsonp callback name")];
       if (!this.get("Content-Type")) {
         this.set("X-Content-Type-Options", "nosniff");
         this.set("Content-Type", "application/json");
@@ -23666,7 +23666,7 @@ var require_response = __commonJS({
       return this;
     };
     res.render = function render(view, options, callback) {
-      var app = this.req.app;
+      var app2 = this.req.app;
       var done = callback;
       var opts = options || {};
       var req = this.req;
@@ -23680,7 +23680,7 @@ var require_response = __commonJS({
         if (err) return req.next(err);
         self.send(str);
       };
-      app.render(view, opts, done);
+      app2.render(view, opts, done);
     };
     function sendfile(res2, file2, options, callback) {
       var done = false;
@@ -23886,19 +23886,19 @@ var require_express = __commonJS({
     var res = require_response();
     exports2 = module2.exports = createApplication;
     function createApplication() {
-      var app = function(req2, res2, next) {
-        app.handle(req2, res2, next);
+      var app2 = function(req2, res2, next) {
+        app2.handle(req2, res2, next);
       };
-      mixin(app, EventEmitter.prototype, false);
-      mixin(app, proto, false);
-      app.request = Object.create(req, {
-        app: { configurable: true, enumerable: true, writable: true, value: app }
+      mixin(app2, EventEmitter.prototype, false);
+      mixin(app2, proto, false);
+      app2.request = Object.create(req, {
+        app: { configurable: true, enumerable: true, writable: true, value: app2 }
       });
-      app.response = Object.create(res, {
-        app: { configurable: true, enumerable: true, writable: true, value: app }
+      app2.response = Object.create(res, {
+        app: { configurable: true, enumerable: true, writable: true, value: app2 }
       });
-      app.init();
-      return app;
+      app2.init();
+      return app2;
     }
     exports2.application = proto;
     exports2.request = req;
@@ -54027,10 +54027,10 @@ var swaggerSpec = {
 };
 
 // src/app.ts
-function createApp(container2) {
-  const app = (0, import_express11.default)();
-  app.use(helmet());
-  app.use(
+function createApp(container3) {
+  const app2 = (0, import_express11.default)();
+  app2.use(helmet());
+  app2.use(
     (0, import_cors.default)({
       origin: appConfig.NODE_ENV === "production" && appConfig.CORS_ORIGIN !== "*" ? appConfig.CORS_ORIGIN.split(",").map((o) => o.trim()) : (origin, callback) => callback(null, true),
       credentials: true,
@@ -54039,12 +54039,12 @@ function createApp(container2) {
     })
   );
   if (appConfig.NODE_ENV !== "test") {
-    app.use((0, import_morgan.default)(":date[iso] :method :url :status :response-time ms - :res[content-length]"));
+    app2.use((0, import_morgan.default)(":date[iso] :method :url :status :response-time ms - :res[content-length]"));
   }
-  app.use(import_express11.default.json({ limit: "10mb" }));
-  app.use(import_express11.default.urlencoded({ extended: true, limit: "10mb" }));
-  app.use(correlationMiddleware);
-  app.use(globalRateLimiter);
+  app2.use(import_express11.default.json({ limit: "10mb" }));
+  app2.use(import_express11.default.urlencoded({ extended: true, limit: "10mb" }));
+  app2.use(correlationMiddleware);
+  app2.use(globalRateLimiter);
   const swaggerOptions = {
     customCssUrl: "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui.min.css",
     customJs: [
@@ -54052,16 +54052,16 @@ function createApp(container2) {
       "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-standalone-preset.js"
     ]
   };
-  app.get("/api-docs.json", (req, res) => {
+  app2.get("/api-docs.json", (req, res) => {
     res.json(swaggerSpec);
   });
-  app.get(`${appConfig.API_PREFIX}/docs.json`, (req, res) => {
+  app2.get(`${appConfig.API_PREFIX}/docs.json`, (req, res) => {
     res.json(swaggerSpec);
   });
-  app.use("/api-docs", import_swagger_ui_express.default.serve, import_swagger_ui_express.default.setup(swaggerSpec, swaggerOptions));
-  app.use(`${appConfig.API_PREFIX}/docs`, import_swagger_ui_express.default.serve, import_swagger_ui_express.default.setup(swaggerSpec, swaggerOptions));
-  app.use(appConfig.API_PREFIX, createApiRouter(container2));
-  app.get("/", (req, res) => {
+  app2.use("/api-docs", import_swagger_ui_express.default.serve, import_swagger_ui_express.default.setup(swaggerSpec, swaggerOptions));
+  app2.use(`${appConfig.API_PREFIX}/docs`, import_swagger_ui_express.default.serve, import_swagger_ui_express.default.setup(swaggerSpec, swaggerOptions));
+  app2.use(appConfig.API_PREFIX, createApiRouter(container3));
+  app2.get(["/", "/api", "/api/index", "/api/index.js"], (req, res) => {
     res.json({
       name: "Food Delivery API",
       version: "1.0.0",
@@ -54070,11 +54070,11 @@ function createApp(container2) {
       health: `${appConfig.API_PREFIX}/health`
     });
   });
-  app.use((req, res, next) => {
+  app2.use((req, res, next) => {
     next(AppError.notFound(`Route '${req.method} ${req.originalUrl}' not found`));
   });
-  app.use(errorHandler);
-  return app;
+  app2.use(errorHandler);
+  return app2;
 }
 
 // node_modules/bcryptjs/index.js
@@ -58351,36 +58351,9 @@ var DependencyContainer = class _DependencyContainer {
 var container = DependencyContainer.getInstance();
 
 // src/serverless.ts
-var appInstance = null;
-function getApp() {
-  if (!appInstance) {
-    const container2 = DependencyContainer.getInstance();
-    appInstance = createApp(container2);
-  }
-  return appInstance;
-}
-var handler = (req, res) => {
-  try {
-    const app = getApp();
-    return app(req, res);
-  } catch (err) {
-    console.error("SERVERLESS RUNTIME ERROR:", err);
-    if (!res.headersSent) {
-      res.statusCode = 500;
-      res.setHeader("Content-Type", "application/json");
-      res.end(
-        JSON.stringify({
-          success: false,
-          error: {
-            message: err?.message || String(err),
-            stack: err?.stack
-          }
-        })
-      );
-    }
-  }
-};
-module.exports = handler;
+var container2 = DependencyContainer.getInstance();
+var app = createApp(container2);
+module.exports = app;
 /*! Bundled license information:
 
 depd/index.js:

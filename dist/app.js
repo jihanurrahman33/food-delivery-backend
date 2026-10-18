@@ -56,7 +56,7 @@ function createApp(container) {
     // 5. API V1 Routes
     app.use(config_1.appConfig.API_PREFIX, (0, routes_1.createApiRouter)(container));
     // Root welcome route
-    app.get('/', (req, res) => {
+    app.get(['/', '/api', '/api/index', '/api/index.js'], (req, res) => {
         res.json({
             name: 'Food Delivery API',
             version: '1.0.0',

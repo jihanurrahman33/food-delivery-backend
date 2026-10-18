@@ -65,7 +65,7 @@ export function createApp(container: DependencyContainer): Express {
   app.use(appConfig.API_PREFIX, createApiRouter(container));
 
   // Root welcome route
-  app.get('/', (req: Request, res: Response) => {
+  app.get(['/', '/api', '/api/index', '/api/index.js'], (req: Request, res: Response) => {
     res.json({
       name: 'Food Delivery API',
       version: '1.0.0',

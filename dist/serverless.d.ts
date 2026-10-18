@@ -1,2 +1,2 @@
-declare const handler: (req: any, res: any) => any;
-export = handler;
+declare const app: import("express").Express;
+export = app;
