@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { logger } from '../../../core/utils/logger';
 
+import { getBundledSeedData } from './bundled-seeds';
+
 /**
  * Robust JSON File Store with In-Memory Write-Queue & Atomic File Replacement
  *
@@ -12,16 +14,22 @@ import { logger } from '../../../core/utils/logger';
  * 4. Easy swap for SQL/NoSQL databases via repository interfaces
  */
 export class JsonFileStore<T extends { id: string }> {
+  private readonly fileName: string;
   private readonly filePath: string;
   private readonly tmpFilePath: string;
   private cache: T[] | null = null;
   private writeQueue: Promise<void> = Promise.resolve();
 
   constructor(fileName: string, baseDir: string) {
-    if (!fs.existsSync(baseDir)) {
-      fs.mkdirSync(baseDir, { recursive: true });
+    this.fileName = fileName.replace('.json', '');
+    try {
+      if (!fs.existsSync(baseDir)) {
+        fs.mkdirSync(baseDir, { recursive: true });
+      }
+    } catch (err) {
+      logger.warn(`Could not ensure base directory ${baseDir}:`, err);
     }
-    this.filePath = path.join(baseDir, fileName.endsWith('.json') ? fileName : `${fileName}.json`);
+    this.filePath = path.join(baseDir, `${this.fileName}.json`);
     this.tmpFilePath = `${this.filePath}.tmp`;
     this.ensureFileExists();
   }
@@ -29,13 +37,24 @@ export class JsonFileStore<T extends { id: string }> {
   private ensureFileExists(): void {
     if (!fs.existsSync(this.filePath)) {
       try {
-        const seedPath = path.resolve(process.cwd(), 'data', path.basename(this.filePath));
+        // 1. Try memory-bundled seeds first (zero filesystem dependency)
+        const bundled = getBundledSeedData(this.fileName);
+        if (bundled && bundled.length > 0) {
+          fs.writeFileSync(this.filePath, JSON.stringify(bundled, null, 2), 'utf-8');
+          logger.info(`Auto-seeded ${this.filePath} from bundled memory`);
+          return;
+        }
+
+        // 2. Try repository data directory
+        const seedPath = path.resolve(process.cwd(), 'data', `${this.fileName}.json`);
         if (fs.existsSync(seedPath) && seedPath !== this.filePath) {
           fs.copyFileSync(seedPath, this.filePath);
           logger.info(`Auto-seeded ${this.filePath} from ${seedPath}`);
-        } else {
-          fs.writeFileSync(this.filePath, JSON.stringify([], null, 2), 'utf-8');
+          return;
         }
+
+        // 3. Fallback to empty array
+        fs.writeFileSync(this.filePath, JSON.stringify([], null, 2), 'utf-8');
       } catch (err) {
         logger.error(`Failed to initialize file ${this.filePath}:`, err);
       }

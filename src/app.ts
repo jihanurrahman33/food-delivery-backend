@@ -43,8 +43,23 @@ export function createApp(container: DependencyContainer): Express {
   app.use(globalRateLimiter);
 
   // 4. API Documentation (Swagger)
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  app.use(`${appConfig.API_PREFIX}/docs`, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  const swaggerOptions = {
+    customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui.min.css',
+    customJs: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-bundle.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-standalone-preset.js',
+    ],
+  };
+
+  app.get('/api-docs.json', (req: Request, res: Response) => {
+    res.json(swaggerSpec);
+  });
+  app.get(`${appConfig.API_PREFIX}/docs.json`, (req: Request, res: Response) => {
+    res.json(swaggerSpec);
+  });
+
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerOptions));
+  app.use(`${appConfig.API_PREFIX}/docs`, swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerOptions));
 
   // 5. API V1 Routes
   app.use(appConfig.API_PREFIX, createApiRouter(container));

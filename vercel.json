@@ -9,6 +9,7 @@
   "env": {
     "NODE_ENV": "production",
     "API_PREFIX": "/api/v1",
-    "CORS_ORIGIN": "*"
+    "CORS_ORIGIN": "*",
+    "DATA_DIR": "/tmp/data"
   }
 }
