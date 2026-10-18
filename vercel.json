@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/api"
-    },
-    {
-      "source": "/((?!api/).*)",
-      "destination": "/api"
+      "destination": "/api",
+      "permanent": false
     }
   ],
   "env": {
