@@ -99,5 +99,22 @@
     },
     "createdAt": "2026-10-18T15:37:28.058Z",
     "updatedAt": "2026-10-18T15:37:28.062Z"
+  },
+  {
+    "id": "pay_df497ea643",
+    "orderId": "FD-87134",
+    "userId": "usr_001",
+    "amount": 24.08,
+    "currency": "USD",
+    "provider": "mock",
+    "paymentMethod": "card",
+    "transactionReference": "txn_mock_1792338119420_3guwft",
+    "signature": "cs_3cb32f11612058205f82d9dea3ee4f8fec30cf2339ade4b0dc4605c24d363751",
+    "status": "succeeded",
+    "metadata": {
+      "orderId": "FD-87134"
+    },
+    "createdAt": "2026-10-18T15:41:59.420Z",
+    "updatedAt": "2026-10-18T15:41:59.425Z"
   }
 ]
