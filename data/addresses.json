@@ -1,0 +1,38 @@
+[
+  {
+    "id": "addr_1",
+    "userId": "usr_001",
+    "label": "Home",
+    "fullAddress": "76A Eighth Avenue, New York, NY 10011",
+    "street": "76A Eighth Avenue",
+    "apartment": "Apt 4B",
+    "deliveryNotes": "Leave in lobby by door phone",
+    "isDefault": true,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "addr_2",
+    "userId": "usr_001",
+    "label": "Office",
+    "fullAddress": "450 Lexington Ave, New York, NY 10017",
+    "street": "450 Lexington Ave",
+    "apartment": "Floor 12, Tech Hub",
+    "deliveryNotes": "Call upon arrival",
+    "isDefault": false,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "addr_3",
+    "userId": "usr_001",
+    "label": "Parents",
+    "fullAddress": "128 Queens Blvd, Forest Hills, NY 11375",
+    "street": "128 Queens Blvd",
+    "apartment": "House #3",
+    "deliveryNotes": "Ring bell twice",
+    "isDefault": false,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z"
+  }
+]

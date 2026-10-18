@@ -1,0 +1,32 @@
+[
+  {
+    "id": "notif_1",
+    "userId": "usr_001",
+    "title": "Your order has been picked up!",
+    "description": "Robert Fox is on the way with your delicious meal from Rose Garden Bakehouse.",
+    "time": "10 min ago",
+    "iconName": "delivery_dining",
+    "isRead": false,
+    "createdAt": "2026-10-18T14:41:58.418Z"
+  },
+  {
+    "id": "notif_2",
+    "userId": "usr_001",
+    "title": "Flash Deal: 40% OFF Gourmet Burgers",
+    "description": "Use promo code SAVE20 on your next order. Valid until midnight!",
+    "time": "2 hours ago",
+    "iconName": "local_offer",
+    "isRead": true,
+    "createdAt": "2026-10-18T12:51:58.418Z"
+  },
+  {
+    "id": "notif_3",
+    "userId": "usr_001",
+    "title": "Payment Confirmed",
+    "description": "Payment of $33.12 via Visa •••• 4242 was successful.",
+    "time": "Yesterday",
+    "iconName": "check_circle",
+    "isRead": true,
+    "createdAt": "2026-10-17T14:51:58.418Z"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "rev_1",
+    "restaurantId": "rest_1",
+    "orderId": "FD-98421",
+    "userId": "usr_001",
+    "author": "Courtney Henry",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100",
+    "rating": 5,
+    "riderRating": 5,
+    "comment": "Best smash burger in the neighborhood. Arrived hot and crispy, the secret aioli is sensational!",
+    "createdAt": "2026-01-10T12:00:00.000Z"
+  },
+  {
+    "id": "rev_2",
+    "restaurantId": "rest_1",
+    "userId": "usr_002",
+    "author": "Devon Lane",
+    "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100",
+    "rating": 4.8,
+    "comment": "Super fast delivery and fresh ingredients. Definitely ordering again next Friday.",
+    "createdAt": "2026-01-12T14:30:00.000Z"
+  },
+  {
+    "id": "rev_3",
+    "restaurantId": "rest_2",
+    "userId": "usr_003",
+    "author": "Jane Cooper",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100",
+    "rating": 5,
+    "comment": "Authentic Neapolitan pizza crust! Chewy yet airy, tomato sauce tastes like real Italy.",
+    "createdAt": "2026-01-14T18:45:00.000Z"
+  }
+]

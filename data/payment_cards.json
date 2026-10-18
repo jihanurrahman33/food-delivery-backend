@@ -1,0 +1,22 @@
+[
+  {
+    "id": "card_1",
+    "userId": "usr_001",
+    "cardHolderName": "Jihanur Rahman",
+    "cardNumber": "•••• •••• •••• 4242",
+    "expiryDate": "08/28",
+    "brand": "Visa",
+    "isDefault": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "card_2",
+    "userId": "usr_001",
+    "cardHolderName": "Jihanur Rahman",
+    "cardNumber": "•••• •••• •••• 8821",
+    "expiryDate": "11/27",
+    "brand": "Mastercard",
+    "isDefault": false,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  }
+]

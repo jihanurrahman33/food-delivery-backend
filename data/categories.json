@@ -1,0 +1,51 @@
+[
+  {
+    "id": "cat_all",
+    "name": "All",
+    "icon": "🍽️",
+    "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200",
+    "sortOrder": 0
+  },
+  {
+    "id": "cat_burger",
+    "name": "Burger",
+    "icon": "🍔",
+    "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200",
+    "sortOrder": 1
+  },
+  {
+    "id": "cat_pizza",
+    "name": "Pizza",
+    "icon": "🍕",
+    "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200",
+    "sortOrder": 2
+  },
+  {
+    "id": "cat_asian",
+    "name": "Asian",
+    "icon": "🍜",
+    "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200",
+    "sortOrder": 3
+  },
+  {
+    "id": "cat_mexican",
+    "name": "Mexican",
+    "icon": "🌮",
+    "imageUrl": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200",
+    "sortOrder": 4
+  },
+  {
+    "id": "cat_dessert",
+    "name": "Dessert",
+    "icon": "🍰",
+    "imageUrl": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=200",
+    "sortOrder": 5
+  },
+  {
+    "id": "cat_drinks",
+    "name": "Drinks",
+    "icon": "🥤",
+    "imageUrl": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=200",
+    "sortOrder": 6
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "rest_1",
+    "name": "Rose Garden Bakehouse",
+    "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80",
+    "logoUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=150&auto=format&fit=crop&q=80",
+    "rating": 4.8,
+    "ratingCount": 382,
+    "deliveryTime": "20-25 min",
+    "deliveryFee": 2.5,
+    "distanceKm": 1.8,
+    "address": "42 Baker Street, West End",
+    "tags": [
+      "Burger",
+      "American",
+      "Sandwiches"
+    ],
+    "isOpen": true,
+    "isFeatured": true,
+    "chefUserId": "usr_chef_1"
+  },
+  {
+    "id": "rest_2",
+    "name": "Piazza Bella Napoli",
+    "imageUrl": "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=800&auto=format&fit=crop&q=80",
+    "logoUrl": "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=150&auto=format&fit=crop&q=80",
+    "rating": 4.9,
+    "ratingCount": 520,
+    "deliveryTime": "25-30 min",
+    "deliveryFee": 0,
+    "distanceKm": 2.4,
+    "address": "15 Little Italy Blvd, Downtown",
+    "tags": [
+      "Pizza",
+      "Italian",
+      "Pasta"
+    ],
+    "isOpen": true,
+    "isFeatured": true
+  },
+  {
+    "id": "rest_3",
+    "name": "Tokyo Ramen & Sushi Bar",
+    "imageUrl": "https://images.unsplash.com/photo-1552611052-33e04de081de?w=800&auto=format&fit=crop&q=80",
+    "logoUrl": "https://images.unsplash.com/photo-1552611052-33e04de081de?w=150&auto=format&fit=crop&q=80",
+    "rating": 4.7,
+    "ratingCount": 290,
+    "deliveryTime": "15-20 min",
+    "deliveryFee": 1.99,
+    "distanceKm": 1.2,
+    "address": "88 Sakura Way, Midtown",
+    "tags": [
+      "Asian",
+      "Ramen",
+      "Japanese"
+    ],
+    "isOpen": true,
+    "isFeatured": false
+  },
+  {
+    "id": "rest_4",
+    "name": "El Fuego Cantina",
+    "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80",
+    "logoUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=150&auto=format&fit=crop&q=80",
+    "rating": 4.6,
+    "ratingCount": 215,
+    "deliveryTime": "30-35 min",
+    "deliveryFee": 3,
+    "distanceKm": 3.5,
+    "address": "124 Sonora Plaza, South Bay",
+    "tags": [
+      "Mexican",
+      "Tacos",
+      "Burritos"
+    ],
+    "isOpen": true,
+    "isFeatured": false
+  }
+]

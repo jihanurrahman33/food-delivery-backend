@@ -1,0 +1,32 @@
+[
+  {
+    "id": "msg_1",
+    "orderId": "FD-98421",
+    "senderId": "usr_rider_1",
+    "senderRole": "rider",
+    "senderName": "Robert Fox",
+    "text": "Hello! I have picked up your order from Rose Garden Bakehouse.",
+    "timestamp": "2026-10-18T14:43:58.419Z",
+    "isRead": true
+  },
+  {
+    "id": "msg_2",
+    "orderId": "FD-98421",
+    "senderId": "usr_001",
+    "senderRole": "customer",
+    "senderName": "Jihanur Rahman",
+    "text": "Great, thanks! Please leave it with the front desk if needed.",
+    "timestamp": "2026-10-18T14:45:58.419Z",
+    "isRead": true
+  },
+  {
+    "id": "msg_3",
+    "orderId": "FD-98421",
+    "senderId": "usr_rider_1",
+    "senderRole": "rider",
+    "senderName": "Robert Fox",
+    "text": "Sure thing, I will be there in about 10 minutes!",
+    "timestamp": "2026-10-18T14:47:58.419Z",
+    "isRead": true
+  }
+]

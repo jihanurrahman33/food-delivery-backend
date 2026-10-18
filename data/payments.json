@@ -1,0 +1,69 @@
+[
+  {
+    "id": "pay_1",
+    "orderId": "FD-98421",
+    "userId": "usr_001",
+    "amount": 33.12,
+    "currency": "USD",
+    "provider": "mock",
+    "paymentMethod": "card",
+    "transactionReference": "txn_mock_seed_98421",
+    "status": "succeeded",
+    "metadata": {
+      "orderId": "FD-98421"
+    },
+    "createdAt": "2026-10-18T14:36:58.419Z",
+    "updatedAt": "2026-10-18T14:36:58.419Z"
+  },
+  {
+    "id": "pay_24c3444a11",
+    "orderId": "FD-99037",
+    "userId": "usr_001",
+    "amount": 24.08,
+    "currency": "USD",
+    "provider": "mock",
+    "paymentMethod": "card",
+    "transactionReference": "txn_mock_1792335813694_2biprq",
+    "signature": "cs_eec37e0b69e4a9d2818e6b00bd1980705c922979623dd5062bf464e455b47643",
+    "status": "pending",
+    "metadata": {
+      "orderId": "FD-99037"
+    },
+    "createdAt": "2026-10-18T15:03:33.694Z",
+    "updatedAt": "2026-10-18T15:03:33.694Z"
+  },
+  {
+    "id": "pay_4d95f5d0b6",
+    "orderId": "FD-41683",
+    "userId": "usr_001",
+    "amount": 24.08,
+    "currency": "USD",
+    "provider": "mock",
+    "paymentMethod": "card",
+    "transactionReference": "txn_mock_1792335949345_vibx49",
+    "signature": "cs_fb39a1d90516431e762b1af732d45ad25cf2552b1b24a5ea99ad6894d9d7d9ba",
+    "status": "succeeded",
+    "metadata": {
+      "orderId": "FD-41683"
+    },
+    "createdAt": "2026-10-18T15:05:49.345Z",
+    "updatedAt": "2026-10-18T15:05:49.351Z"
+  },
+  {
+    "id": "pay_061570a020",
+    "orderId": "FD-38011",
+    "userId": "usr_001",
+    "amount": 24.08,
+    "currency": "USD",
+    "provider": "mock",
+    "paymentMethod": "card",
+    "transactionReference": "txn_mock_1792335971192_7enr60",
+    "signature": "cs_06e2e3c6d3ab671efd8d2413aafd8dff52f2e36f7e55f1fb6125969287e84074",
+    "status": "succeeded",
+    "metadata": {
+      "orderId": "FD-38011"
+    },
+    "createdAt": "2026-10-18T15:06:11.192Z",
+    "updatedAt": "2026-10-18T15:06:11.195Z"
+  }
+]

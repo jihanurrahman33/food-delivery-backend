@@ -1,0 +1,50 @@
+[
+  {
+    "id": "usr_001",
+    "name": "Jihanur Rahman",
+    "email": "jihanurrahman33@gmail.com",
+    "phone": "+1 (555) 234-5678",
+    "passwordHash": "$2b$10$5x1jNwuMKXIQ2NHnrFgE2uaXx3WTAsNI8w87KSpZQSKU/TBtbxbdS",
+    "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+    "role": "customer",
+    "address": "76A Eighth Avenue, New York, NY 10011",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "usr_chef_1",
+    "name": "Chef Gordon",
+    "email": "chef@fooddelivery.com",
+    "phone": "+1 (555) 345-6789",
+    "passwordHash": "$2b$10$5x1jNwuMKXIQ2NHnrFgE2uaXx3WTAsNI8w87KSpZQSKU/TBtbxbdS",
+    "avatarUrl": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&auto=format&fit=crop&q=80",
+    "role": "chef",
+    "address": "Rose Garden Kitchen, West End",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "usr_rider_1",
+    "name": "Robert Fox",
+    "email": "rider@fooddelivery.com",
+    "phone": "+1 (555) 789-0123",
+    "passwordHash": "$2b$10$5x1jNwuMKXIQ2NHnrFgE2uaXx3WTAsNI8w87KSpZQSKU/TBtbxbdS",
+    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
+    "role": "rider",
+    "address": "Midtown Hub, New York, NY",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "usr_admin_1",
+    "name": "System Admin",
+    "email": "admin@fooddelivery.com",
+    "phone": "+1 (555) 999-0000",
+    "passwordHash": "$2b$10$5x1jNwuMKXIQ2NHnrFgE2uaXx3WTAsNI8w87KSpZQSKU/TBtbxbdS",
+    "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80",
+    "role": "admin",
+    "address": "Headquarters, New York, NY",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z"
+  }
+]
